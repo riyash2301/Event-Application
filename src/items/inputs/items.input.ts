@@ -1,6 +1,6 @@
 import { InputType, Field, Int } from 'type-graphql';
 
-@InputType("input")
+@InputType()
 export class ItemInput {
   @Field()
   readonly title: string;

@@ -9,12 +9,12 @@ import { ItemType } from './dto/create_items.dto';
 export class ItemsService {
     constructor(@InjectModel('Item') private itemModel: Model<Item>) {}
 
-    async findAll() {
+    async findAll(): Promise<Item[]> {
         return  await this.itemModel.find().exec();
     }
 
-    async create(input){
-        const createdItem = new this.itemModel(input);
-        return  await createdItem.save();
+    async create(input:Item){
+        const createdItem = await new this.itemModel(input);
+        return   createdItem.save();
       }
 }

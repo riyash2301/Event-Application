@@ -17,12 +17,12 @@ export class ItemsResolver {
     }
 
     @Query(() => [ItemType])
-    async items(): Promise<Item[]> {
+    async items() : Promise<Item[]>{
         return await this.itemservice.findAll();
     }
 
     @Mutation(() => ItemType)
-    async createItem(@Args('input') input: ItemInput) {
+    async createItem(@Args('input') input: ItemType):Promise<Item> {
       return await this.itemservice.create(input);
     }
 }
